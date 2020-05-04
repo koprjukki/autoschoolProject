@@ -1,6 +1,18 @@
 import React from "react";
 import "./_app.sass";
+import { Switch, Route } from "react-router-dom";
+import Nav from "./Components/Nav/Nav";
 
 export default function App() {
-	return <div>AUTOSCHOOL</div>;
+  return (
+    <>
+      <Nav />
+      <Switch>
+        <Route path="/" exact component="HomePage" />
+        <Route path="/services" component="ServicesPage" />
+        <Route path="/about" component="AboutPage" />
+        <Route path="/contacts" component="ContactsPage" />
+      </Switch>
+    </>
+  );
 }
