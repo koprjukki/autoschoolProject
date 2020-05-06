@@ -11,7 +11,6 @@ class App extends Component {
 
   // Form //
   handelGetUserInfo = (data) => {
-    console.log(data);
     this.setState((prevState) => ({
       data: [...prevState.data, data],
     }));
@@ -25,10 +24,10 @@ class App extends Component {
         <Form getUserInfo={this.handelGetUserInfo} />
         <Nav />
         <Switch>
-          <Route path="/" exact component="HomePage" />
+          {/* <Route path="/" exact component="HomePage" />
           <Route path="/services" component="ServicesPage" />
           <Route path="/about" component="AboutPage" />
-          <Route path="/contacts" component="ContactsPage" />
+          <Route path="/contacts" component="ContactsPage" /> */}
         </Switch>
       </>
     );
