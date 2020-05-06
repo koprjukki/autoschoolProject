@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import S from "./Nav.module.css";
 
 export default class Nav extends Component {
   state = {};
@@ -7,7 +8,7 @@ export default class Nav extends Component {
     return (
       <>
         <Link to="/">LOGO</Link>
-        <section class="refs">
+        <section className={S.refs}>
           <div>
             <a href="tel:+380673828244">+38 067 382 82 44</a>
           </div>
