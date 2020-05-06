@@ -24,9 +24,8 @@ class Form extends Component {
     this.reset();
   };
 
-  handleChangeSelect = (select) => {
-    console.log(select);
-    this.setState({ select: select.value });
+  handleChangeSelect = (elem) => {
+    this.setState({ select: elem.value });
   };
 
   handleChange = (e) => {
@@ -39,12 +38,11 @@ class Form extends Component {
   };
 
   render() {
-    console.log(this.props);
-    const { name, number, text, select } = this.state;
+    const { name, number, select, text } = this.state;
     return (
       <form onSubmit={this.handelSubmit}>
         <Select
-          value={select}
+          value={select.value}
           onChange={this.handleChangeSelect}
           placeholder="Виберіть Коробку передач"
           options={options}
