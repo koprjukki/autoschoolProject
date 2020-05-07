@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Select from "react-select";
 
 const options = [
-  { value: "Автоматична КПП", label: "Автоматична КПП" },
-  { value: "Механічна КПП", label: "Механічна КПП" },
+  { value: "Відновлення навичків", label: "Відновлення навичків" },
+  { value: "Навчання до категорії B", label: "Навчання до категорії B" },
 ];
 
 class Form extends Component {
