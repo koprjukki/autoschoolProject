@@ -1,94 +1,87 @@
 import React, { Component } from "react";
 import Select from "react-select";
+import { Input } from "./Input/Input";
 
 const options = [
-  { value: "Відновлення навичків", label: "Відновлення навичків" },
-  { value: "Навчання до категорії B", label: "Навчання до категорії B" },
+	{ value: "Відновлення навичків", label: "Відновлення навичків" },
+	{ value: "Навчання до категорії B", label: "Навчання до категорії B" },
 ];
 
 class Form extends Component {
-  state = {
-    name: "",
-    number: "",
-    select: "",
-    text: "",
-  };
+	state = {
+		name: "",
+		number: "",
+		select: "",
+		text: "",
+	};
 
-  handelSubmit = (e) => {
-    const { name, number } = this.state;
-    e.preventDefault();
+	handelSubmit = (e) => {
+		const { select } = this.state;
+		e.preventDefault();
 
-    if (name.length > 1 && number.length === 10) {
-      this.props.getUserInfo({ ...this.state });
-    }
-    this.reset();
-  };
+		if (select === "") {
+			return alert("Виберіть навичок!");
+		}
 
-  handleChangeSelect = (elem) => {
-    this.setState({ select: elem.value });
-  };
+		this.props.getUserInfo({ ...this.state });
+		this.reset();
+	};
 
-  handleChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
+	handleChangeSelect = (elem) => {
+		this.setState({ select: elem.value });
+	};
 
-  reset = () => {
-    this.setState({ name: "", number: "", select: "", text: "" });
-  };
+	handleChange = (e) => {
+		const { name, value } = e.target;
+		this.setState({ [name]: value });
+	};
 
-  render() {
-    const { name, number, select, text } = this.state;
-    return (
-      <form onSubmit={this.handelSubmit}>
-        <Select
-          value={select.value}
-          onChange={this.handleChangeSelect}
-          placeholder="Виберіть Коробку передач"
-          options={options}
-        />
-        <label>
-          Ім’я <br />
-          <input
-            name="name"
-            value={name}
-            onChange={this.handleChange}
-            type="text"
-            placeholder="Ваше Ім'я"
-          />
-        </label>
-        <br />
+	reset = () => {
+		this.setState({ name: "", number: "", select: "", text: "" });
+	};
 
-        <label>
-          Ваш номер телефону <br />
-          <input
-            name="number"
-            value={number}
-            onChange={this.handleChange}
-            type="number"
-            min="0"
-            placeholder="+38 ___ ___ __ __"
-          />
-        </label>
-        <br />
-
-        <label>
-          Повідомлення <br />
-          <input
-            value={text}
-            onChange={this.handleChange}
-            name="text"
-            placeholder="Ваше повідомлення (Не обов’язково)"
-            type="text"
-            minLength="20"
-          />
-        </label>
-        <br />
-
-        <button type="submit">Запис на курс</button>
-      </form>
-    );
-  }
+	render() {
+		const { name, number, select, text } = this.state;
+		console.log("--------->", this.state);
+		return (
+			<form onSubmit={this.handelSubmit}>
+				<Select
+					value={select.value}
+					onChange={this.handleChangeSelect}
+					placeholder="Виберіть що ви хочете вивчать"
+					options={options}
+				/>
+				<Input
+					placeholder="Ваше Ім'я"
+					onChange={this.handleChange}
+					name="name"
+					value={name}
+					isRequired={true}
+					labelHeading="Ім’я"
+				/>
+				<Input
+					onChange={this.handleChange}
+					name="number"
+					value={number}
+					mask="+38(999)-999-99-99"
+					isRequired={true}
+					placeholder="+38(999)-999-99-99"
+					labelHeading="Ваш номер телефону"
+				/>
+				<Input
+					placeholder="Ваше повідомлення (Не обов’язково)"
+					onChange={this.handleChange}
+					name="text"
+					value={text}
+					isRequired={false}
+					labelHeading="Повідомлення"
+				/>
+				<button type="submit" onSubmit={this.handelSubmit}>
+					Запис на курс
+				</button>
+			</form>
+		);
+	}
 }
 
 export default Form;
