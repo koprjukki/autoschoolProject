@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import Nav from "../components/Nav/Nav";
 import Form from "../components/Form/Form";
+import Slider from "../components/Slider/Slider";
+import city from "../json/city.json";
 import "./_app.sass";
 
 class App extends Component {
@@ -21,6 +23,7 @@ class App extends Component {
 		console.log(data);
 		return (
 			<>
+				<Slider />
 				<Form getUserInfo={this.handelGetUserInfo} />
 				<Nav />
 				<Switch>
