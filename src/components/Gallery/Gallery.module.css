@@ -1,0 +1,22 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 1000px;
+  height: auto;
+}
+
+.img {
+  height: 200px;
+  width: 100%;
+}
+
+.box {
+  width: 50%;
+}
+
+.car {
+  height: 200px;
+  display: block;
+  width: 100%;
+}
