@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Nav from "../components/Nav/Nav";
 import Form from "../components/Form/Form";
 import Slider from "../components/Slider/Slider";
+import VKSlider from "../components/VKSlider/VKSlider";
 import city from "../json/city.json";
 import "./_app.sass";
 
@@ -23,6 +24,7 @@ class App extends Component {
     console.log(data);
     return (
       <>
+        <VKSlider />
         <Form getUserInfo={this.handelGetUserInfo} />
         <Nav />
         <Switch>
