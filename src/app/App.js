@@ -41,7 +41,6 @@ class App extends Component {
       <>
         <VKSlider />
         <VKsCallbackSlider />
-        <Form getUserInfo={this.handelGetUserInfo} />
 
         <Nav />
         <Switch>
@@ -54,9 +53,8 @@ class App extends Component {
         <button onClick={this.handleModalOpen}>Запишись на курс!</button>
         {modal && (
           <Modal src={modal} handleModalClose={this.handleModalClose} />
-
+        )}
         <Gallery />
-
       </>
     );
   }
