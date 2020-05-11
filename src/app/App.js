@@ -3,6 +3,9 @@ import { Switch, Route } from "react-router-dom";
 import Nav from "../components/Nav/Nav";
 import Slider from "../components/Slider/Slider";
 import VKSlider from "../components/VKSlider/VKSlider";
+import Gallery from "../components/Gallery/Gallery";
+import VKsCallbackSlider from "../components/VKsCallbackSlider/VKsCallbackSlider";
+
 import city from "../json/city.json";
 import "./_app.sass";
 import Modal from "../components/Modal/Modal";
@@ -37,6 +40,9 @@ class App extends Component {
     return (
       <>
         <VKSlider />
+        <VKsCallbackSlider />
+        <Form getUserInfo={this.handelGetUserInfo} />
+
         <Nav />
         <Switch>
           {/* <Route path="/" exact component="HomePage" /> */}
@@ -44,10 +50,13 @@ class App extends Component {
           <Route path="/about" component="AboutPage" />
           <Route path="/contacts" component="ContactsPage" />
         </Switch>
+
         <button onClick={this.handleModalOpen}>Запишись на курс!</button>
         {modal && (
           <Modal src={modal} handleModalClose={this.handleModalClose} />
-        )}
+
+        <Gallery />
+
       </>
     );
   }
