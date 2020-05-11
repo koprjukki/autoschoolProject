@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Select from "react-select";
 import { Input } from "./Input/Input";
+import styles from "./Form.module.scss";
 
 const options = [
   { value: "Відновлення навичків", label: "Відновлення навичків" },
@@ -44,12 +45,14 @@ class Form extends Component {
     const { name, number, select, text } = this.state;
     console.log("--------->", this.state);
     return (
-      <form onSubmit={this.handelSubmit}>
+      <form onSubmit={this.handelSubmit} className={styles.form}>
+        <h2 className={styles.head}>Залишити заявку</h2>
         <Select
           value={select.value}
           onChange={this.handleChangeSelect}
           placeholder="Виберіть що ви хочете вивчать"
           options={options}
+          className={styles.formSelect}
         />
         <Input
           placeholder="Ваше Ім'я"
