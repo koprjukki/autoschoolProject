@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import Nav from "../components/Nav/Nav";
-import Slider from "../components/Slider/Slider";
 import VKSlider from "../components/VKSlider/VKSlider";
+import Form from "../components/Form/Form";
 import Gallery from "../components/Gallery/Gallery";
 import VKsCallbackSlider from "../components/VKsCallbackSlider/VKsCallbackSlider";
 
@@ -28,8 +28,8 @@ class App extends Component {
     this.setState({ modal: true });
   };
 
-  handleModalClose = ({ target, key }) => {
-    if (target.nodeName === "DIV" || key === "Escape") {
+  handleModalClose = (e) => {
+    if (e.code === "Escape") {
       this.setState({ modal: false });
     }
   };
@@ -39,6 +39,15 @@ class App extends Component {
     console.log(data);
     return (
       <>
+        <Form getUserInfo={this.handelGetUserInfo} />
+        <button onClick={this.handleModalOpen}>Запишись на курс!</button>
+
+        {modal && (
+          <Modal src={modal} handleModalClose={this.handleModalClose}>
+            <Form getUserInfo={this.handelGetUserInfo} />
+          </Modal>
+        )}
+        <Gallery />
         <VKSlider />
         <VKsCallbackSlider />
 
@@ -49,12 +58,6 @@ class App extends Component {
           <Route path="/about" component="AboutPage" />
           <Route path="/contacts" component="ContactsPage" />
         </Switch>
-
-        <button onClick={this.handleModalOpen}>Запишись на курс!</button>
-        {modal && (
-          <Modal src={modal} handleModalClose={this.handleModalClose} />
-        )}
-        <Gallery />
       </>
     );
   }

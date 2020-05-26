@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Form from "../Form/Form";
 import styles from "./Modal.module.scss";
 
 export default class Modal extends Component {
@@ -12,10 +11,8 @@ export default class Modal extends Component {
   }
 
   render() {
-    return (
-      <div className={styles.overlay}>
-        <Form getUserInfo={this.props.handelGetUserInfo} />
-      </div>
-    );
+    console.log(this.props);
+
+    return <div className={styles.overlay}>{this.props.children}</div>;
   }
 }
