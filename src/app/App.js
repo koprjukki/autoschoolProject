@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import Nav from "../components/Nav/Nav";
+import Form from "../components/Form/Form";
 import VKSlider from "../components/VKSlider/VKSlider";
 import Form from "../components/Form/Form";
 import Gallery from "../components/Gallery/Gallery";
 import VKsCallbackSlider from "../components/VKsCallbackSlider/VKsCallbackSlider";
+import VKCarousel from "../components/VKCarousel/VKCarousel";
+import ElasticCarousel from "../components/ElasticCarousel/ElasticCarousel";
 
 import city from "../json/city.json";
 import "./_app.sass";
@@ -39,6 +42,14 @@ class App extends Component {
     console.log(data);
     return (
       <>
+
+        <ElasticCarousel />
+
+        <VKCarousel />
+        <VKsCallbackSlider />
+
+        <Form getUserInfo={this.handelGetUserInfo} />
+
         <Form getUserInfo={this.handelGetUserInfo} />
         <button onClick={this.handleModalOpen}>Запишись на курс!</button>
 
@@ -53,7 +64,7 @@ class App extends Component {
 
         <Nav />
         <Switch>
-          {/* <Route path="/" exact component="HomePage" /> */}
+          <Route path="/" exact component="HomePage" />
           <Route path="/services" component="ServicesPage" />
           <Route path="/about" component="AboutPage" />
           <Route path="/contacts" component="ContactsPage" />

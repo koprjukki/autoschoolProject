@@ -1,0 +1,16 @@
+.carouselWrapper {
+  /* height: 100px; */
+}
+
+/* .carouselWrapper:nth-child(odd) {
+  background-color: teal;
+} */
+
+.carouselItemWrapper {
+  border: 5px solid red;
+  margin: 0 10px;
+}
+
+.carouselItemWrapper:nth-of-type(2n) {
+  background-color: blue;
+}
