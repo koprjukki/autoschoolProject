@@ -1,0 +1,19 @@
+.form {
+  background-color: red;
+  text-align: center;
+}
+
+// .formSelect {
+//   width: 90%;
+// }
+
+.head {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+@media (min-width: 320px) {
+  .form {
+    width: 90%;
+  }
+}
